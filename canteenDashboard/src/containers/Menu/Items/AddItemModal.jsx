@@ -13,18 +13,29 @@ import {
 
 const OPTIONS = [
   {
-    name: 'Jain',
-    value: 'JAIN',
+    name: 'Vegan',
+    value: 'VEGAN',
   },
   {
-    name: 'Non-jain',
-    value: 'NON_JAIN',
-  },
-  {
-    name: 'Both',
-    value: 'BOTH',
+    name: 'All',
+    value: 'ALL',
   },
 ];
+
+// const OPTIONS = [
+//   {
+//     name: 'Jain',
+//     value: 'JAIN',
+//   },
+//   {
+//     name: 'Non-jain',
+//     value: 'NON_JAIN',
+//   },
+//   {
+//     name: 'All',
+//     value: 'BOTH',
+//   }
+// ];
 
 export default function AddItemModal(props) {
   const { show, onHide, item } = props;
@@ -87,14 +98,14 @@ export default function AddItemModal(props) {
             <Form.Label>Price</Form.Label>
             <InputGroup>
               <InputGroup.Prepend>
-                <InputGroup.Text>₹</InputGroup.Text>
+                <InputGroup.Text>₴</InputGroup.Text>
               </InputGroup.Prepend>
               <Form.Control placeholder="00" type="number" onChange={e => setPrice(e.target.value)} value={price} />
             </InputGroup>
           </Form.Group>
           <Form.Group controlId="itemForm.choice">
             <Form.Label>Choice</Form.Label>
-            <Form.Control as="select" multiple onChange={e => setChoice(e.target.value)} value={choice}>
+            <Form.Control as="select" multiple onChange={e => setChoice(e.target.value)}>
               {OPTIONS.map((o, i) => <option key={i} value={o.value}>{o.name}</option>)}
             </Form.Control>
           </Form.Group>

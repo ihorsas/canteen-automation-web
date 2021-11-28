@@ -61,7 +61,7 @@ class Migration(migrations.Migration):
                 ('price', models.PositiveIntegerField()),
                 ('is_available', models.BooleanField(default=True)),
                 ('preparation_time', models.TimeField(blank=True, null=True)),
-                ('options', models.CharField(choices=[('JAIN', 'Jain'), ('NON JAIN', 'Non Jain'), ('BOTH', 'Both')], default='NON JAIN', max_length=8)),
+                ('options', models.CharField(choices=[("VEGETARIAN", "Vegetarian"), ("ALL", "All")], default='ALL', max_length=16)),
                 ('image', models.ImageField(blank=True, max_length=254, null=True, upload_to='menuImages/')),
                 ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='canteenDb.Category')),
             ],
@@ -122,7 +122,7 @@ class Migration(migrations.Migration):
             name='OrderItem',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('options', models.CharField(choices=[('JAIN', 'Jain'), ('NON JAIN', 'Non Jain'), ('BOTH', 'Both')], default='NON JAIN', max_length=8)),
+                ('options', models.CharField(choices=[("VEGETARIAN", "Vegetarian"), ("ALL", "All")], default='ALL', max_length=16)),
                 ('quantity', models.SmallIntegerField()),
                 ('comment', models.TextField(blank=True)),
                 ('menu_item', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='canteenDb.MenuItem')),
