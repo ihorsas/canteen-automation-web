@@ -4,7 +4,7 @@
 """
 
 # Menu Item
-MENU_ITEM_CHOICES = (("JAIN", "Jain"), ("NON JAIN", "Non Jain"), ("BOTH", "Both"))
+MENU_ITEM_CHOICES = (("VEGETARIAN", "Vegetarian"), ("ALL", "All"))
 MENU_ITEM_CATEGORY = (
     ("CHINESE", "Chinese Food"),
     ("SOUTH INDIAN", "South Indian Food"),

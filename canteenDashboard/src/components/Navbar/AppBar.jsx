@@ -10,7 +10,7 @@ export default function AppBar() {
   return (
     <Navbar bg="primary" variant="dark">
       <Navbar.Brand>
-        DJ Canteen
+        Canteen2077
       </Navbar.Brand>
       <Nav>
         <Nav.Link as={NavLink} exact to="/">HOME</Nav.Link>

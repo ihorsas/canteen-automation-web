@@ -61,7 +61,7 @@ class MenuItem(models.Model):
     is_available = models.BooleanField(default=True)
     preparation_time = models.TimeField(blank=True, null=True)
     options = models.CharField(
-        max_length=8, choices=choices.MENU_ITEM_CHOICES, default="NON JAIN"
+        max_length=16, choices=choices.MENU_ITEM_CHOICES, default="ALL"
     )
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='menuImages/',
