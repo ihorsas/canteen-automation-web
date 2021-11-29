@@ -99,7 +99,7 @@ class OrderItem(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, related_name="items", on_delete=models.CASCADE)
     options = models.CharField(
-        max_length=8, choices=choices.MENU_ITEM_CHOICES, default="NON JAIN"
+        max_length=16, choices=choices.MENU_ITEM_CHOICES, default="ALL"
     )
     quantity = models.SmallIntegerField()
     comment = models.TextField(blank=True)
