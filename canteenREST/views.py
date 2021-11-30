@@ -158,8 +158,8 @@ class StudentSignUpView(generics.CreateAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.validated_data["is_student"] = True
-        if len(serializer.validated_data["username"]) != 11 or serializer.validated_data["username"][0] != '6':
-            return Response({"error":"Incorrect Student Sap ID"}, status.HTTP_400_BAD_REQUEST)
+        # if len(serializer.validated_data["username"]) != 11 or serializer.validated_data["username"][0] != '6':
+        #     return Response({"error":"Incorrect Student Sap ID"}, status.HTTP_400_BAD_REQUEST)
         hashed_password = make_password(serializer.validated_data['password'])
         serializer.validated_data['password'] = hashed_password
         self.perform_create(serializer)
