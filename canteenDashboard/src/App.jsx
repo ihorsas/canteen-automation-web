@@ -7,7 +7,8 @@ import { ApolloProvider } from 'react-apollo';
 import { client } from './helpers/graphql';
 
 import Navbar from './components/Navbar/AppBar';
-import HomePage from './pages/HomePage';
+import AdminPage from './pages/AdminPage';
+import ViewPage from './pages/HomePage';
 import OrdersPage from './pages/OrdersPage';
 
 function AppContent() {
@@ -16,8 +17,9 @@ function AppContent() {
       <Navbar />
       <section className="flex-grow-1">
         <Switch>
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/admin" component={AdminPage} />
           <Route path="/orders" component={OrdersPage} />
+          <Route path="/" component={ViewPage} />
         </Switch>
       </section>
     </main>

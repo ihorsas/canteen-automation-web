@@ -15,6 +15,7 @@ export default function AppBar() {
       <Nav>
         <Nav.Link as={NavLink} exact to="/">HOME</Nav.Link>
         <Nav.Link as={NavLink} to="/orders">ORDERS</Nav.Link>
+        <Nav.Link as={NavLink} to="/admin">ADMIN</Nav.Link>
       </Nav>
     </Navbar>
   );

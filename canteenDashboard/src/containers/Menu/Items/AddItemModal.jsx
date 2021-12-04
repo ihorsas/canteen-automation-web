@@ -13,29 +13,14 @@ import {
 
 const OPTIONS = [
   {
-    name: 'Vegan',
-    value: 'VEGAN',
+    name: 'Vegetarian',
+    value: 'VEGETARIAN',
   },
   {
     name: 'All',
     value: 'ALL',
   },
 ];
-
-// const OPTIONS = [
-//   {
-//     name: 'Jain',
-//     value: 'JAIN',
-//   },
-//   {
-//     name: 'Non-jain',
-//     value: 'NON_JAIN',
-//   },
-//   {
-//     name: 'All',
-//     value: 'BOTH',
-//   }
-// ];
 
 export default function AddItemModal(props) {
   const { show, onHide, item } = props;

@@ -1,38 +1,30 @@
+/* eslint-disable linebreak-style */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { Query } from 'react-apollo';
 import * as queries from '../../../helpers/graphql/queries';
-
 import CenteredSpinner from '../../../components/Spinner/CenteredSpinner';
+import ItemCard from '../Items/ItemCard';
 
 import {
-  Container,
-  Row,
+  ListGroupItem,
   Col,
-  Button,
+  Row
 } from 'react-bootstrap';
 
-import MenuItem from './ItemCard';
-import AddCategoryModal from './AddItemModal';
-
-export default function Items() {
+export default function CategoryWithItemsCard(props) {
+  const { id, name, onDelete } = props;
   const [show, setShow] = useState(false);
   const toggle = () => setShow(s => !s);
   const [itemEdit, setItemEdit] = useState();
 
   return (
-    <Container fluid>
-      <Row className="border-bottom align-items-center">
-        <Col sm={10}>
-          <h2 className="text-center my-3">Items</h2>
-        </Col>
-        <Col sm={2}>
-          <Button variant="success" size="sm" onClick={toggle}> + </Button>
-        </Col>
+    <Col>
+      <Row style={{display: 'flex', justifyContent: 'center'}}>
+          <h3>{name}</h3>
       </Row>
-
-      <Row>
-        <Query query={queries.GET_MENU}>
+      <Query query={queries.GET_MENU}>
           {({
             data,
             loading,
@@ -53,16 +45,25 @@ export default function Items() {
             };
 
             return (
+              
               <Col>
                 <div className="flex-column">
-                  {data.menu_items.map(c => <MenuItem key={c.id} onDelete={refetch} className="px-0" {...c} onEdit={() => { toggle(); setItemEdit(c); }} />)}
+                  {data.menu_items.filter((i) => i.category.name == name).map(i => <ItemCard key={i.id} onDelete={refetch} className="px-0" {...i} onEdit={() => { toggle(); setItemEdit(i); }} />)}
                 </div>
-                <AddCategoryModal show={show} onHide={onHide} item={itemEdit} />
               </Col>
             );
           }}
         </Query>
-      </Row>
-    </Container>
+        </Col>
   );
 }
+
+CategoryWithItemsCard.defaultProps = {
+  onDelete: null,
+};
+
+CategoryWithItemsCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  onDelete: PropTypes.func,
+};
