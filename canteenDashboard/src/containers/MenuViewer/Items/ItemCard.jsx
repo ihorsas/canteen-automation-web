@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Mutation } from 'react-apollo';
-import * as queries from '../../../helpers/graphql/queries';
-
 import {
   Button,
   Card,
@@ -12,6 +9,12 @@ import {
   Row,
 } from 'react-bootstrap';
 
+const imgStyle = {
+  'height': '270px',
+  'width': 'auto',
+  'max-width':'1000px'
+};
+
 export default function ItemCard(props) {
   const {
     id,
@@ -19,6 +22,7 @@ export default function ItemCard(props) {
     price,
     category,
     options,
+    image,
     onDelete,
     onEdit,
   } = props;
@@ -30,11 +34,14 @@ export default function ItemCard(props) {
           <Row>
             <Col xs={1} className="bg-success py-3" />
             <Col xs={8}>
-              {name}
+              <h5>{name}</h5>
             </Col>
             <Col xs={3}>
-              {price}
+              <h3>{price}₴</h3>
             </Col>
+          </Row>
+          <Row style={{display: 'flex', justifyContent: 'center'}}>
+              <img style={imgStyle} src={`${process.env.REACT_APP_GRAPHQL_ENDPOINT}/media/${image}`}></img>
           </Row>
         </Container>
       </Card.Body>

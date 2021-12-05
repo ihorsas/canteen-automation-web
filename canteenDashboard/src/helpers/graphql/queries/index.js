@@ -54,6 +54,7 @@ export const GET_MENU = gql`
     name
     id
     price
+    image
     options
   }
 }

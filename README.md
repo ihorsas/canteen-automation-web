@@ -49,7 +49,10 @@
 ```bash
   cd canteenFrontend
   npm install
-  npm start
+  // on mac
+  REACT_APP_GRAPHQL_ENDPOINT=http://127.0.0.1:8000 npm start
+  // on windows 
+  //TODO
 ```
 Note: DO NOT RUN ```npm audit fix```
 
