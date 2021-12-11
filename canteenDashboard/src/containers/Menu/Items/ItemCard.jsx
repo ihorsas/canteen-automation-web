@@ -18,6 +18,7 @@ export default function ItemCard(props) {
     name,
     price,
     category,
+    isAvailable,
     options,
     onDelete,
     onEdit,
@@ -34,6 +35,13 @@ export default function ItemCard(props) {
         }
       });
   };
+
+  var isAvailableColor;
+  if (isAvailable) {
+    isAvailableColor = "bg-success py-3";
+  } else {
+    isAvailableColor = "bg-danger py-3";
+  }
 
   return (
     <Mutation mutation={queries.DELETE_MENU_ITEM}>
@@ -72,7 +80,7 @@ export default function ItemCard(props) {
             <Card.Body className="p-0">
               <Container fluid>
                 <Row>
-                  <Col xs={1} className="bg-success py-3" />
+                  <Col xs={1} className={isAvailableColor} />
                   <Col xs={8}>
                     {category.name}
                   </Col>

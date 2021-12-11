@@ -20,6 +20,7 @@ export default function ItemCard(props) {
     id,
     name,
     price,
+    isAvailable,
     category,
     options,
     image,
@@ -27,12 +28,19 @@ export default function ItemCard(props) {
     onEdit,
   } = props;
 
+  var isAvailableColor;
+  if (isAvailable) {
+    isAvailableColor = "bg-success py-3";
+  } else {
+    isAvailableColor = "bg-danger py-3";
+  }
+
   return (
     <Card className="w-100 m-1">
       <Card.Body className="p-0">
         <Container fluid>
           <Row>
-            <Col xs={1} className="bg-success py-3" />
+            <Col xs={1} className= {isAvailableColor}/>
             <Col xs={8}>
               <h5>{name}</h5>
             </Col>

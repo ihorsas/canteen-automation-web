@@ -50,7 +50,7 @@ export const GET_MENU = gql`
       name
       id
     }
-    is_available: isAvailable
+    isAvailable
     name
     id
     price
@@ -80,13 +80,14 @@ mutation addCategory($name: String!) {
 `;
 
 export const ADD_MENU_ITEM = gql`
-mutation addMenu($name: String!, $price: Int!, $categoryId: ID!,$choice:String!, $id: ID) {
-  menuItemMutation(input: { id: $id, name: $name, price: $price, category: $categoryId, options:$choice }) {
+mutation addMenu($name: String!, $price: Int!, $categoryId: ID!, $choice:String!, $isAvailable: Boolean!, $id: ID) {
+  menuItemMutation(input: { id: $id, name: $name, price: $price, category: $categoryId, options:$choice, isAvailable: $isAvailable}) {
     menuItem {
       id
       name
       price
       options
+      isAvailable
       category{
         id
         name

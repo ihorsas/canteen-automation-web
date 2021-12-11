@@ -27,6 +27,7 @@ export default function AddItemModal(props) {
   const [id, setId] = useState();
   const [name, setName] = useState();
   const [price, setPrice] = useState();
+  const [isAvailable, setIsAvailable] = useState();
   const [categoryId, setCategoryId] = useState();
   const [choice, setChoice] = useState();
   const isEditMode = useMemo(() => !!item, [item]);
@@ -35,6 +36,7 @@ export default function AddItemModal(props) {
     setName(null);
     setChoice(null);
     setPrice(null);
+    setIsAvailable(false);
     setCategoryId(null);
     setId(null);
     if (onHide) {
@@ -47,6 +49,7 @@ export default function AddItemModal(props) {
       variables: {
         name,
         price,
+        isAvailable,
         categoryId,
         choice,
         id,
@@ -57,10 +60,16 @@ export default function AddItemModal(props) {
       });
   };
 
+
+  // useEffect(() => {
+    // alert(isAvailable);
+  // }, [isAvailable]);
+
   useEffect(() => {
     if (item) {
       setName(item.name);
       setPrice(item.price);
+      setIsAvailable(item.isAvailable);
       setCategoryId(item.category.id);
       setChoice(item.options);
       setId(item.id);
@@ -90,8 +99,9 @@ export default function AddItemModal(props) {
           </Form.Group>
           <Form.Group controlId="itemForm.choice">
             <Form.Label>Choice</Form.Label>
-            <Form.Control as="select" multiple onChange={e => setChoice(e.target.value)}>
-              {OPTIONS.map((o, i) => <option key={i} value={o.value}>{o.name}</option>)}
+            <Form.Control as="select" multiple onChange={e => setChoice(e.target.option)} option={choice}>
+              <option value="VEGETARIAN">VEGETARIAN</option>
+              <option value="ALL">ALL</option>
             </Form.Control>
           </Form.Group>
           <Form.Group controlId="itemForm.category">
@@ -102,11 +112,13 @@ export default function AddItemModal(props) {
                   if (error) {
                     alert('Error loading categories: ', error);
                   }
-
                   return data.categories.map(c => <option value={c.id} key={c.id}>{c.name}</option>);
                 }}
               </Query>
             </Form.Control>
+          </Form.Group>
+          <Form.Group controlId="itemForm.isAvailable">
+            <Form.Check type="checkbox" label="is Available" onChange={e => setIsAvailable(e.target.checked)} checked={isAvailable}/>
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>

@@ -13,7 +13,7 @@ import {
 } from 'react-bootstrap';
 
 import MenuItem from './ItemCard';
-import AddCategoryModal from './AddItemModal';
+import AddItemModal from './AddItemModal';
 
 export default function Items() {
   const [show, setShow] = useState(false);
@@ -57,7 +57,7 @@ export default function Items() {
                 <div className="flex-column">
                   {data.menu_items.map(c => <MenuItem key={c.id} onDelete={refetch} className="px-0" {...c} onEdit={() => { toggle(); setItemEdit(c); }} />)}
                 </div>
-                <AddCategoryModal show={show} onHide={onHide} item={itemEdit} />
+                <AddItemModal show={show} onHide={onHide} item={itemEdit} />
               </Col>
             );
           }}
