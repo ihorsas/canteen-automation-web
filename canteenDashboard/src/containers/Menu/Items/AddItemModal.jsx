@@ -61,10 +61,6 @@ export default function AddItemModal(props) {
   };
 
   useEffect(() => {
-    alert(choice)
-  }, [choice]);
-
-  useEffect(() => {
     if (item) {
       setName(item.name);
       setPrice(item.price);
