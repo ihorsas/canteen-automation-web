@@ -1,9 +1,8 @@
 <p>
-    <h1 align='center'> 🥙 Canteen Automation Project </h1>
-    <h6 align='center'> Admin Dashboard </h6>
+    <h1 align='center'> 🥙 Canteen2077 Project </h1>
 </p>
 
-<h4 align='center'> Repository for the Unicode 2018 project Canteen ordering and queueing system. </h4>
+<h4 align='center'> Repository for the project of the Ivan Franko National University Canteen ordering and queueing system. </h4>
 
 <br>
 <br>
@@ -15,10 +14,10 @@
 .
 ├── LICENSE
 ├── README.md
-├── canteenApp/ -> Django app for android app endpoints
 ├── canteenAutomation -> Project configurations
-├── canteenFrontend -> React app for web dashboard
-├── canteenWeb -> Django app for web dashboard endpoints
+├── canteenDashboard -> React app for web dashboard
+├── canteenGraphql -> Django app for web dashboard endpoints
+├── canteenREST -> Deprecated Django REST API endpoints
 ├── manage.py
 └── requirements.txt
 ```
@@ -27,7 +26,8 @@
 
 #### Backend
 - Django 2.1+ (Python 3.6+)
-- Django REST Framework
+- Django GraphQL Framework
+- Django REST Framework (Deprecated)
 - Djoser authentication library
 
 #### Frontend
@@ -64,9 +64,18 @@ Note: DO NOT RUN ```npm audit fix```
 
 3. Please follow the directory structure for React JS.
 
-4. You can optionally prettify React code using `npm run pretty` in `canteenFrontend/`.
+4. You can optionally prettify React code using `npm run pretty` in `canteenDashboard/`.
 
 ## Team
+
+#### Developers
+
+1. Viktoriia Chumakevych (PM)
+2. Ihor Sas (Key Dev)
+3. Mykhailo Tsalan (Backend)
+4. Bohdan Klymenko (Frontend)
+
+## Old Team
 
 #### Developers
 
