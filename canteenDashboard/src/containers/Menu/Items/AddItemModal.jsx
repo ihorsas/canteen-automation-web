@@ -60,10 +60,9 @@ export default function AddItemModal(props) {
       });
   };
 
-
-  // useEffect(() => {
-    // alert(isAvailable);
-  // }, [isAvailable]);
+  useEffect(() => {
+    alert(choice)
+  }, [choice]);
 
   useEffect(() => {
     if (item) {
@@ -99,7 +98,7 @@ export default function AddItemModal(props) {
           </Form.Group>
           <Form.Group controlId="itemForm.choice">
             <Form.Label>Choice</Form.Label>
-            <Form.Control as="select" multiple onChange={e => setChoice(e.target.option)} option={choice}>
+            <Form.Control as="select" multiple onChange={e => setChoice(e.target.value)} option={choice}>
               <option value="VEGETARIAN">VEGETARIAN</option>
               <option value="ALL">ALL</option>
             </Form.Control>
